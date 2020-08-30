@@ -23,30 +23,48 @@ struct SimplestView: View {
     
     var body: some View {
         HStack {
+            HStack {
+                Toggle(isOn: $ibConfig.connect) {
+                    Text("On")
+                }
+                .toggleStyle(SwitchToggleStyle())
+            }
+            
             Toggle(isOn: $ibConfig.workstation) {
-                Text("workstation")
+                Text("W/S") //(ibConfig.workstation ? "W/S" : "G/W")
             }
             //            Spacer()
             Toggle(isOn: $ibConfig.paper) {
-                Text("paper")
+                Text("Paper") //(ibConfig.paper ? "Paper" : "Live")
             }
-            Toggle(isOn: $ibConfig.connect) {
-                Text("connect")
-            }
-            .toggleStyle(SwitchToggleStyle())
+            
             Spacer()
             
-            Button(action: {
-                self.rebalance()
-            }) {
-                Text("Hedge Now")
+            HStack {
+                TextField("Stock Symbol", text: $ibConfig.symbolA)
+                
+                //Spacer()
+                
+                Slider(value: $ibConfig.percentage,in: 20.0...80.0, step:5.0, onEditingChanged: { ratio in
+                    print(self.ibConfig.percentage, ratio)
+                }, minimumValueLabel: Text("\(Int(ibConfig.percentage))"), maximumValueLabel: Text("\(Int(100.0 - ibConfig.percentage))"), label: {Text("")})
+                TextField("Stock Symbol", text: $ibConfig.symbolB)
+                
+                Button(action: {
+                    self.rebalance()
+                }) {
+                    Text("Go")
+                }
+                .disabled(!self.ibConfig.connect)
             }
-            .disabled(!self.ibConfig.connect)
         }
-        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 
+//private
+func onPercentChange(ratio: Float) -> Void {
+    print(ratio)
+}
 
 struct SimplestView_Previews: PreviewProvider {
     static var previews: some View {
