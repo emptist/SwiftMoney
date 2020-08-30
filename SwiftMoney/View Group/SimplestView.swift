@@ -8,18 +8,27 @@
 
 import SwiftUI
 
-
+struct ConnectView: View {
+    @ObservedObject var ib: IbAPI
+    @Binding var ibConfig: IbConfig
+    
+    
+    
+    var body: some View {
+        Button(action: {
+            self.ib.rebalance(ibConfig: self.ibConfig)
+        }) {
+            Text("Go")
+        }
+        .disabled(!self.ibConfig.connect)
+    }
+}
 
 struct SimplestView: View {
-    @State private var ibConfig = IbConfig.init(autoConnect: true)
+    @State private var ibConfig = IbConfig() //(autoConnect: false)
+    //@ObservedObject private var ibConfig = IbSettings()
     
-    @ObservedObject var ib: IbAPI = IbAPI()
     
-    fileprivate func rebalance() {
-        if self.ibConfig.connect {
-            print("workstation \(self.ibConfig.workstation) paper \(self.ibConfig.paper)")
-        }
-    }
     
     var body: some View {
         HStack {
@@ -45,26 +54,23 @@ struct SimplestView: View {
                 
                 //Spacer()
                 
-                Slider(value: $ibConfig.percentage,in: 20.0...80.0, step:5.0, onEditingChanged: { ratio in
+                Slider(value: $ibConfig.percentage,in: 10.0...90.0, step:10.0, onEditingChanged: { ratio in
                     print(self.ibConfig.percentage, ratio)
                 }, minimumValueLabel: Text("\(Int(ibConfig.percentage))"), maximumValueLabel: Text("\(Int(100.0 - ibConfig.percentage))"), label: {Text("")})
                 TextField("Stock Symbol", text: $ibConfig.symbolB)
                 
-                Button(action: {
-                    self.rebalance()
-                }) {
-                    Text("Go")
-                }
-                .disabled(!self.ibConfig.connect)
+                //                Button(action: {
+                //                    self.rebalance()
+                //                }) {
+                //                    Text("Go")
+                //                }
+                //                .disabled(!self.ibConfig.connect)
             }
+            ConnectView(ib: IbAPI(ibConfig: self.ibConfig), ibConfig: $ibConfig)
         }
     }
 }
 
-//private
-func onPercentChange(ratio: Float) -> Void {
-    print(ratio)
-}
 
 struct SimplestView_Previews: PreviewProvider {
     static var previews: some View {

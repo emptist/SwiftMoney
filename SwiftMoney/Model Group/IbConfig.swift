@@ -12,9 +12,12 @@ struct IbConfig {
     var paper = true
     var workstation = true
     var connect = false
-    
+    var host = "127.0.0.1"
     var symbolA = ""
     var symbolB = ""
+    var tickers: [String] {
+        [symbolA,symbolB]
+    }
     var percentage = 50.0
     
     var port: UInt32 {

@@ -19,6 +19,7 @@
 		480D417324FB4ADF00607110 /* IbSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417224FB4ADF00607110 /* IbSocket.swift */; };
 		480D417524FB815A00607110 /* SimplestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417424FB815A00607110 /* SimplestView.swift */; };
 		480D417724FB81FD00607110 /* IbConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417624FB81FD00607110 /* IbConfig.swift */; };
+		480D417924FBB12A00607110 /* IbSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417824FBB12A00607110 /* IbSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		480D417224FB4ADF00607110 /* IbSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbSocket.swift; sourceTree = "<group>"; };
 		480D417424FB815A00607110 /* SimplestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplestView.swift; sourceTree = "<group>"; };
 		480D417624FB81FD00607110 /* IbConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbConfig.swift; sourceTree = "<group>"; };
+		480D417824FBB12A00607110 /* IbSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				480D417024FB4A5D00607110 /* IbAPI.swift */,
+				480D417824FBB12A00607110 /* IbSettings.swift */,
 			);
 			path = "View Model Group";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				480D417524FB815A00607110 /* SimplestView.swift in Sources */,
 				480D414F24FB44EF00607110 /* AppDelegate.swift in Sources */,
 				480D417124FB4A5D00607110 /* IbAPI.swift in Sources */,
+				480D417924FBB12A00607110 /* IbSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
