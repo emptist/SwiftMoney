@@ -3,26 +3,48 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		480D414F24FB44EF00607110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D414E24FB44EF00607110 /* AppDelegate.swift */; };
-		480D415124FB44EF00607110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D415024FB44EF00607110 /* ContentView.swift */; };
 		480D415324FB44F700607110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480D415224FB44F700607110 /* Assets.xcassets */; };
 		480D415624FB44F700607110 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480D415524FB44F700607110 /* Preview Assets.xcassets */; };
 		480D415924FB44F700607110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480D415724FB44F700607110 /* Main.storyboard */; };
+		480D416424FB461C00607110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D416324FB461C00607110 /* ContentView.swift */; };
+		480D416A24FB470D00607110 /* EWrapper+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D416924FB470D00607110 /* EWrapper+.swift */; };
+		480D416D24FB495500607110 /* SwiftIB in Frameworks */ = {isa = PBXBuildFile; productRef = 480D416C24FB495500607110 /* SwiftIB */; };
+		480D416E24FB495500607110 /* SwiftIB in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 480D416C24FB495500607110 /* SwiftIB */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		480D417124FB4A5D00607110 /* IbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417024FB4A5D00607110 /* IbAPI.swift */; };
+		480D417324FB4ADF00607110 /* IbSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417224FB4ADF00607110 /* IbSocket.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		480D416F24FB495500607110 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				480D416E24FB495500607110 /* SwiftIB in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		480D414B24FB44EF00607110 /* SwiftMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D414E24FB44EF00607110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		480D415024FB44EF00607110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		480D415224FB44F700607110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		480D415524FB44F700607110 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		480D415824FB44F700607110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		480D415A24FB44F700607110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480D415B24FB44F700607110 /* SwiftMoney.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftMoney.entitlements; sourceTree = "<group>"; };
+		480D416324FB461C00607110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		480D416924FB470D00607110 /* EWrapper+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EWrapper+.swift"; sourceTree = "<group>"; };
+		480D417024FB4A5D00607110 /* IbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbAPI.swift; sourceTree = "<group>"; };
+		480D417224FB4ADF00607110 /* IbSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbSocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480D416D24FB495500607110 /* SwiftIB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +78,11 @@
 		480D414D24FB44EF00607110 /* SwiftMoney */ = {
 			isa = PBXGroup;
 			children = (
+				480D416524FB466700607110 /* View Group */,
+				480D416624FB468D00607110 /* View Model Group */,
+				480D416724FB46A000607110 /* Model Group */,
+				480D416824FB46C600607110 /* Extension Group */,
 				480D414E24FB44EF00607110 /* AppDelegate.swift */,
-				480D415024FB44EF00607110 /* ContentView.swift */,
 				480D415224FB44F700607110 /* Assets.xcassets */,
 				480D415724FB44F700607110 /* Main.storyboard */,
 				480D415A24FB44F700607110 /* Info.plist */,
@@ -74,6 +100,38 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		480D416524FB466700607110 /* View Group */ = {
+			isa = PBXGroup;
+			children = (
+				480D416324FB461C00607110 /* ContentView.swift */,
+			);
+			path = "View Group";
+			sourceTree = "<group>";
+		};
+		480D416624FB468D00607110 /* View Model Group */ = {
+			isa = PBXGroup;
+			children = (
+				480D417024FB4A5D00607110 /* IbAPI.swift */,
+			);
+			path = "View Model Group";
+			sourceTree = "<group>";
+		};
+		480D416724FB46A000607110 /* Model Group */ = {
+			isa = PBXGroup;
+			children = (
+				480D417224FB4ADF00607110 /* IbSocket.swift */,
+			);
+			path = "Model Group";
+			sourceTree = "<group>";
+		};
+		480D416824FB46C600607110 /* Extension Group */ = {
+			isa = PBXGroup;
+			children = (
+				480D416924FB470D00607110 /* EWrapper+.swift */,
+			);
+			path = "Extension Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -84,12 +142,16 @@
 				480D414724FB44EF00607110 /* Sources */,
 				480D414824FB44EF00607110 /* Frameworks */,
 				480D414924FB44EF00607110 /* Resources */,
+				480D416F24FB495500607110 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SwiftMoney;
+			packageProductDependencies = (
+				480D416C24FB495500607110 /* SwiftIB */,
+			);
 			productName = SwiftMoney;
 			productReference = 480D414B24FB44EF00607110 /* SwiftMoney.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +180,9 @@
 				Base,
 			);
 			mainGroup = 480D414224FB44EF00607110;
+			packageReferences = (
+				480D416B24FB495500607110 /* XCRemoteSwiftPackageReference "SwiftIB" */,
+			);
 			productRefGroup = 480D414C24FB44EF00607110 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,8 +210,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				480D415124FB44EF00607110 /* ContentView.swift in Sources */,
+				480D416A24FB470D00607110 /* EWrapper+.swift in Sources */,
+				480D416424FB461C00607110 /* ContentView.swift in Sources */,
+				480D417324FB4ADF00607110 /* IbSocket.swift in Sources */,
 				480D414F24FB44EF00607110 /* AppDelegate.swift in Sources */,
+				480D417124FB4A5D00607110 /* IbAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +413,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		480D416B24FB495500607110 /* XCRemoteSwiftPackageReference "SwiftIB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:sunmoonlotus/SwiftIB.git";
+			requirement = {
+				branch = spm;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		480D416C24FB495500607110 /* SwiftIB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 480D416B24FB495500607110 /* XCRemoteSwiftPackageReference "SwiftIB" */;
+			productName = SwiftIB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 480D414324FB44EF00607110 /* Project object */;
 }
