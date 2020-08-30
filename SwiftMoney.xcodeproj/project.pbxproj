@@ -17,6 +17,8 @@
 		480D416E24FB495500607110 /* SwiftIB in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 480D416C24FB495500607110 /* SwiftIB */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		480D417124FB4A5D00607110 /* IbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417024FB4A5D00607110 /* IbAPI.swift */; };
 		480D417324FB4ADF00607110 /* IbSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417224FB4ADF00607110 /* IbSocket.swift */; };
+		480D417524FB815A00607110 /* SimplestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417424FB815A00607110 /* SimplestView.swift */; };
+		480D417724FB81FD00607110 /* IbConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D417624FB81FD00607110 /* IbConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		480D416924FB470D00607110 /* EWrapper+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EWrapper+.swift"; sourceTree = "<group>"; };
 		480D417024FB4A5D00607110 /* IbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbAPI.swift; sourceTree = "<group>"; };
 		480D417224FB4ADF00607110 /* IbSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbSocket.swift; sourceTree = "<group>"; };
+		480D417424FB815A00607110 /* SimplestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplestView.swift; sourceTree = "<group>"; };
+		480D417624FB81FD00607110 /* IbConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				480D416324FB461C00607110 /* ContentView.swift */,
+				480D417424FB815A00607110 /* SimplestView.swift */,
 			);
 			path = "View Group";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				480D417224FB4ADF00607110 /* IbSocket.swift */,
+				480D417624FB81FD00607110 /* IbConfig.swift */,
 			);
 			path = "Model Group";
 			sourceTree = "<group>";
@@ -213,6 +219,8 @@
 				480D416A24FB470D00607110 /* EWrapper+.swift in Sources */,
 				480D416424FB461C00607110 /* ContentView.swift in Sources */,
 				480D417324FB4ADF00607110 /* IbSocket.swift in Sources */,
+				480D417724FB81FD00607110 /* IbConfig.swift in Sources */,
+				480D417524FB815A00607110 /* SimplestView.swift in Sources */,
 				480D414F24FB44EF00607110 /* AppDelegate.swift in Sources */,
 				480D417124FB4A5D00607110 /* IbAPI.swift in Sources */,
 			);
