@@ -7,7 +7,7 @@
 //
 
 
-import AppKit
+//import AppKit
 import Foundation
 import SwiftIB
 
@@ -31,29 +31,28 @@ struct LoggingWrapper: EWrapper {
     func tickPrice(_ tickerId: Int, field: Int, price: Double, canAutoExecute: Int) {
         print("tickerId \(tickerId),field \(field),price \(price)")
         
-        let f = outputFiles[tickerId]
-        let s = "PRICE field \(field) price \(price)\n"
-        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
+//        let f = outputFiles[tickerId]
+//        let s = "PRICE field \(field) price \(price)\n"
+//        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
     }
     
     func tickSize(_ tickerId: Int, field: Int, size: Int) {
         print("tickerId \(tickerId),field \(field),size \(size)")
         
-        let f = outputFiles[tickerId]
-        let s = "SIZE  \(field) \(size)\n"
-        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
+//        let f = outputFiles[tickerId]
+//        let s = "SIZE  \(field) \(size)\n"
+//        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
     }
     
     func tickGeneric(_ tickerId: Int, tickType: Int, value: Double) {
         print("tickerId \(tickerId),tickType \(tickType),value \(value)")
         
-        let f = outputFiles[tickerId]
-        let s = "GENERIC \(tickType) \(value)\n"
-        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
+//        let f = outputFiles[tickerId]
+//        let s = "GENERIC \(tickType) \(value)\n"
+//        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
     }
     
     func tickString(_ tickerId: Int, tickType: Int, value: String) {
-        let f = outputFiles[tickerId]
         var s = ""
         switch tickType {
             case 45:
@@ -66,7 +65,8 @@ struct LoggingWrapper: EWrapper {
         }
         print(s)
         
-        f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
+        //let f = outputFiles[tickerId]
+        //f.write(s.data(using: String.Encoding.utf8, allowLossyConversion: true)!);f.synchronizeFile()
     }
     
     func accountDownloadEnd(_ accountName: String){
@@ -158,12 +158,24 @@ struct IbSocket {
         while true {
             let wrapper = LoggingWrapper()
             let client = EClientSocket(p_eWrapper: wrapper, p_anyWrapper: wrapper)
-            print("Host: \(host), Port: \(port) Connecting to IB API...")
+            print("Host: \(host), Port: \(port) Tickers: \(tickers) Connecting to IB API...")
             client.eConnect(host, p_port: port)
             connected = true
             for i in 0 ..< tickers.count {
-                let con = Contract(p_conId: 0, p_symbol: tickers[i], p_secType: "STK", p_expiry: "", p_strike: 0.0, p_right: "", p_multiplier: "",
-                                   p_exchange: "SMART", p_currency: "USD", p_localSymbol: tickers[i], p_tradingClass: "", p_comboLegs: nil, p_primaryExch: "ISLAND",
+                let p_secType, p_exchange, p_primaryExch, p_currency: String
+                if "USD.JPY" == tickers[i] {
+                    p_secType = "CASH"
+                    p_exchange = "IDEALPRO"
+                    p_primaryExch = "IDEALPRO"
+                    p_currency = "JPY"
+                } else {
+                    p_secType = "STK"
+                    p_exchange = "SMART"
+                    p_primaryExch = "ISLAND"
+                    p_currency = "USD"
+                }
+                let con = Contract(p_conId: 0, p_symbol: tickers[i], p_secType: p_secType, p_expiry: "", p_strike: 0.0, p_right: "", p_multiplier: "",
+                                   p_exchange: p_exchange, p_currency: p_currency, p_localSymbol: tickers[i], p_tradingClass: "", p_comboLegs: nil, p_primaryExch: p_primaryExch,
                                    p_includeExpired: true, p_secIdType: "", p_secId: "")
                 // tickerId is strickly 0..<tickers.count
                 client.reqMktData(i, contract: con, genericTickList: "", snapshot: false, mktDataOptions: nil)

@@ -13,10 +13,22 @@ struct IbConfig {
     var workstation = true
     var connect = false
     var host = "127.0.0.1"
-    var symbolA = ""
-    var symbolB = ""
+    var symbolA = "AAPL"
+    var symbolB = "TSLA"
     var tickers: [String] {
-        [symbolA,symbolB]
+        if symbolB.isEmpty {
+            if symbolA.isEmpty {
+                return []
+            } else {
+                return [symbolA]
+            }
+        } else {
+            if symbolA.isEmpty {
+               return [symbolB]
+            } else {
+                return [symbolA, symbolB]
+            }
+        }
     }
     var percentage = 50.0
     
